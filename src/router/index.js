@@ -5,11 +5,12 @@ import home from "@/components/Home";
 import mine from "@/components/Mine";
 import news from "@/components/News";
 import about from "@/components/About";
+import noFound from "@/components/NoFound";
 
 Vue.use(Router);
 
 export default new Router({
-  mode: "history",
+  mode: "hash",
   routes: [
     {
       path: "/",
@@ -40,6 +41,11 @@ export default new Router({
       path: "about",
       name: "about",
       component: about
+    },
+    {
+      path: "*",
+      name: "*",
+      component: noFound
     }
   ]
 });

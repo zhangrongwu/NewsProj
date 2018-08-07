@@ -1,3 +1,3 @@
 export default {
-  tabBarItemSelected: "0"
+  tabBarItemIndex: 0
 };

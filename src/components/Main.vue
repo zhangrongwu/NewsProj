@@ -1,30 +1,24 @@
 <template>
 <div class="middle">
      <van-nav-bar
+     class="van-nav-bar"
     title="首页"
+    :fixed="navFixed"
     right-text="菜单"
     @click-left="onClickLeft"
     @click-right="onClickRight"
+    :title="getTitle(active)"
    ></van-nav-bar>
    <!-- 中间路由 -->
     <router-view/>
-
     <van-tabbar v-model="active">
-    <!-- <van-tabbar-item icon="shop">
-    <span>首页</span>
-    <img
-      slot="icon"
-      slot-scope="props"
-      :src="props.active ? icon.active : icon.normal">
-    </van-tabbar-item>
-    <van-tabbar-item icon="chat">标签</van-tabbar-item>
-    <van-tabbar-item icon="records" info="10">我的</van-tabbar-item> -->
-
-    <van-tabbar-item v-for="item in tabBar" :key="item.id">
+    <van-tabbar-item v-for="item in tabBar" :key="item.id" info="">
          <span>{{item.title}}</span>
     <img
       slot="icon"
       slot-scope="props"
+      dot=true
+      info="item.badge"
       :src="props.active ? item.active : item.normal"> 
     </van-tabbar-item>
 </van-tabbar>
@@ -39,9 +33,22 @@ export default {
   components: {
     Home: Home
   },
+  filters: {},
+  created() {
+    var index = this.defines.tabBarItemIndex;
+    if (index == 0) {
+      this.$router.push({ name: "home" });
+    } else if (index == 1) {
+      this.$router.push({ name: "news" });
+    } else if (index == 2) {
+      this.$router.push({ name: "mine" });
+    }
+  },
   data() {
     return {
-      active: this.defines.tabBarItemSelected,
+      navFixed: true,
+      active: this.defines.tabBarItemIndex,
+      selectTitle: "首页",
       tabBar: [
         {
           normal: require("../assets/icon-home-normal.png"),
@@ -64,16 +71,15 @@ export default {
           badge: "2",
           id: 2
         }
-      ],
-      icon: {
-        normal: "//img.yzcdn.cn/icon-normal.png",
-        active: "//img.yzcdn.cn/icon-active.png"
-      }
+      ]
     };
   },
   methods: {
     onClickLeft() {},
-    onClickRight() {}
+    onClickRight() {},
+    getTitle: function(value) {
+      return this.tabBar[value].title;
+    }
   },
   watch: {
     active: function(newValue, oldValue) {
@@ -84,13 +90,18 @@ export default {
       } else if (newValue == 2) {
         this.$router.push({ name: "mine" });
       }
-      this.defines.tabBarItemSelected = newValue;
+      this.defines.tabBarItemIndex = newValue;
     }
   }
 };
 </script>
 
 <style scoped>
+.van-nav-bar {
+  background-color: rgb(95, 190, 103);
+  color: white;
+}
+
 .middle {
   width: 100%;
   height: 100%;
