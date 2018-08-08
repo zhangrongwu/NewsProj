@@ -15,16 +15,15 @@ const mutations = {
 const actions = {
   loadMore({ commit, state }) {
     request({
-      url: "event/list?loc=108288&start=" + state.skip + "&count=10",
+      url: "/event/list?loc=108288&start=" + state.skip + "&count=10",
       methods: "get",
-      dataType: "jsonp",
       params: ""
     })
       .then(function(response) {
         console.log(response);
         commit({
           type: "loadMore",
-          res: response.body.events
+          res: response.data.events
         });
       })
       .catch(function(error) {

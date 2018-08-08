@@ -1,6 +1,8 @@
 <template>
 <div class="middle">
   <button @click="getData">数据请求</button>
+  <textarea name="ceshi" id="1" cols="30" rows="10">sdafasfasdfasdfas</textarea>
+  <input type="text">
     这是一个主页面
     {{events}}
     

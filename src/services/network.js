@@ -1,14 +1,13 @@
 import Axios from "axios";
-// import jsonp from "json"
 
 Axios.create({
   headers: {
-    "Content-Type": "application/json; charset=utf-8",
-    dataType: "json"
+    "Content-Type": "application/json; charset=utf-8"
   },
   timeout: 5000
 });
-Axios.defaults.baseURL = "https://api.douban.com/v2/";
+
+Axios.defaults.baseURL = process.env.API_HOST + "/v2/";
 // 拦截器 发送网络请求
 Axios.interceptors.request.use(function(config) {
   return config;
