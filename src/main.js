@@ -5,6 +5,7 @@ import App from "./App";
 import router from "./router";
 import store from "./store";
 import "normalize.css";
+import "scss";
 
 // 有赞UI组件库
 import "vant/lib/vant-css/index.css";

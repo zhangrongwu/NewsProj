@@ -1,6 +1,6 @@
 <template>
   <div class="list">
-    <template  v-for="item in items" >
+    <template  v-for="item in items">
       <router-link
         class="thumbnail"
         :to="{name: 'DetailView', params: { id: item.id }}" :key="item.id">

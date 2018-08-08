@@ -2,6 +2,7 @@
 <div class="middle">
   <home-header-view></home-header-view>
   <home-list :items="events"></home-list>
+  <button @click="getData()">点击加载</button>
 </div>
 </template>
 
@@ -15,6 +16,10 @@ export default {
     homeHeaderView: homeHeaderView,
     homeList: homeList
   },
+  created() {
+    getData();
+    console.log("created");
+  },
   // 计算属性 数据回调与vue进行绑定
   computed: {
     ...mapState({
@@ -23,6 +28,8 @@ export default {
   },
   methods: {
     getData() {
+      console.log("getData");
+
       setTimeout(() => {
         // 调用store中的dispatch方法,并把自己需要调用的方法按类型导入
         this.$store.dispatch({
@@ -42,7 +49,7 @@ export default {
   align-items: center;
   justify-content: center;
   position: absolute;
-  background-color: aqua;
+  background-color: white;
   margin-top: 45px;
   margin-bottom: 50px;
 }
