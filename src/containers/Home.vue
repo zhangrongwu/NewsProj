@@ -1,19 +1,20 @@
 <template>
 <div class="middle">
-  <button @click="getData">数据请求</button>
-  <textarea name="ceshi" id="1" cols="30" rows="10">sdafasfasdfasdfas</textarea>
-  <input type="text">
-    这是一个主页面
-    {{events}}
-    
+  <home-header-view></home-header-view>
+  <home-list :items="events"></home-list>
 </div>
 </template>
 
 <script>
 // 导入状态数据管理
 import { mapState, mapActions } from "vuex";
+import homeHeaderView from "../components/homeHeaderView";
+import homeList from "../components/homeList";
 export default {
-  components: {},
+  components: {
+    homeHeaderView: homeHeaderView,
+    homeList: homeList
+  },
   // 计算属性 数据回调与vue进行绑定
   computed: {
     ...mapState({

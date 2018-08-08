@@ -1,11 +1,11 @@
 import Vue from "vue";
 import Router from "vue-router";
-import main from "@/components/Main";
-import home from "@/components/Home";
-import mine from "@/components/Mine";
-import news from "@/components/News";
-import about from "@/components/About";
-import noFound from "@/components/NoFound";
+import main from "@/containers/Main";
+import home from "@/containers/Home";
+import mine from "@/containers/Mine";
+import news from "@/containers/News";
+import about from "@/containers/About";
+import noFound from "@/containers/NoFound";
 
 Vue.use(Router);
 

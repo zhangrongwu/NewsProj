@@ -98,7 +98,7 @@ export default {
 
 <style scoped>
 .van-nav-bar {
-  background-color: rgb(95, 190, 103);
+  background-color: rgb(84, 170, 91);
   color: white;
 }
 
