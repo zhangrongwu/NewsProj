@@ -1,6 +1,6 @@
 <template>
-<div>
-  <van-tabs @click="onClick">
+<div class="home-header" fixed=true>
+  <van-tabs sticky = true @click="onClick" offset-top=44px>
   <van-tab v-for="item in titles" :title=item.title :key="item.id">
   </van-tab>
 </van-tabs>
@@ -29,7 +29,7 @@ export default {
           url: ""
         },
         {
-          id: "1",
+          id: "4",
           title: "豆瓣视频",
           url: ""
         }
@@ -45,5 +45,22 @@ export default {
 </script>
 
 <style scoped>
+/* .home-header { */
+/* float: top; */
+/* display: flex; */
+/* } */
 </style>
+
+<style>
+.home-header.van-tabs__wrap {
+  top: 44px;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  overflow: hidden;
+  position: fixed !important;
+}
+</style>
+
+
 

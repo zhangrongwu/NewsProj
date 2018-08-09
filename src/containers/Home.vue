@@ -2,7 +2,9 @@
 <div class="middle">
   <home-header-view></home-header-view>
   <home-list :items="events"></home-list>
-  <button @click="getData()">点击加载</button>
+  <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading">
+      <loading slot="spinner"></loading>
+  </infinite-loading>
 </div>
 </template>
 
@@ -11,13 +13,22 @@
 import { mapState, mapActions } from "vuex";
 import homeHeaderView from "../components/homeHeaderView";
 import homeList from "../components/homeList";
+import InfiniteLoading from "vue-infinite-loading";
+import loading from "../components/Loading";
+
 export default {
   components: {
-    homeHeaderView: homeHeaderView,
-    homeList: homeList
+    homeHeaderView,
+    homeList,
+    InfiniteLoading,
+    loading
+  },
+  data() {
+    return {
+      index: 0
+    };
   },
   created() {
-    getData();
     console.log("created");
   },
   // 计算属性 数据回调与vue进行绑定
@@ -27,15 +38,15 @@ export default {
     })
   },
   methods: {
-    getData() {
-      console.log("getData");
-
+    onInfinite() {
+      console.log("onInfinite", this.index++);
       setTimeout(() => {
-        // 调用store中的dispatch方法,并把自己需要调用的方法按类型导入
         this.$store.dispatch({
           type: "loadMore",
           param: ""
         });
+        // 通知loading控件可再加载
+        this.$refs.infiniteLoading.$emit("$InfiniteLoading:loaded");
       }, 1000);
     },
     ...mapActions["loadMore"]
@@ -51,7 +62,6 @@ export default {
   position: absolute;
   background-color: white;
   margin-top: 45px;
-  margin-bottom: 50px;
 }
 </style>
 

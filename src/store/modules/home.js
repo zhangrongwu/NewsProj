@@ -14,6 +14,7 @@ const mutations = {
 // 外部直接调用的方法
 const actions = {
   loadMore({ commit, state }) {
+    console.log("数量" + state.skip);
     request({
       url: "/event/list?loc=108288&start=" + state.skip + "&count=10",
       methods: "get",
@@ -25,12 +26,10 @@ const actions = {
           type: "loadMore",
           res: response.data.events
         });
+        console.log("数量2: " + state.skip);
       })
       .catch(function(error) {
         console.log(error);
-      })
-      .then(function() {
-        console.log("请求最后一步");
       });
   }
 };

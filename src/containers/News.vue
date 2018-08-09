@@ -1,12 +1,37 @@
 <template>
-<div class="middle">
+ <div class="middle">
+  <button @click="getMovie">点击加载数据</button>
+ 
+
     新闻
-</div>
+    {{hotMovies}}
+    {{topMovies}}
+    {{newMovies}}
+    {{movieTags}}
+    
+ </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
-  components: {}
+  name: "News",
+  computed: {
+    hotMovies: state => state.news.hotMovies,
+    topMovies: state => state.news.topMovies,
+    newMovies: state => state.news.newMovies,
+    movieTags: state => state.news.movieTags
+  },
+  components: {},
+
+  methods: {
+    getMovie() {
+      this.$store.dispatch("getMovie");
+    }
+  },
+  created() {
+    // this.getMovie();
+  }
 };
 </script>
 

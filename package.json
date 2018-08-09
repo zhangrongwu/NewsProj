@@ -11,16 +11,21 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "lib-flexible": "^0.3.2",
     "node-sass": "^4.9.2",
     "normalize.css": "^5.0.0",
+    "peer": "^0.2.8",
+    "px2rem-loader": "^0.1.9",
     "sass-loader": "^7.1.0",
     "scss": "^0.2.4",
     "vant": "^1.1.15",
     "vue": "^2.5.2",
+    "vue-infinite-loading": "^2.0.4",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "@types/sequelize": "^4.27.24",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^8.2.1",
@@ -53,6 +58,7 @@
     "portfinder": "^1.0.13",
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
+    "postcss-pxtorem": "^4.0.1",
     "postcss-url": "^7.2.1",
     "rimraf": "^2.6.0",
     "semver": "^5.3.0",
