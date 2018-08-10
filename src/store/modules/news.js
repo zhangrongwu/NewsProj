@@ -78,7 +78,7 @@ const actions = {
         commit({
           type: "getMovie", //回调的方法名称
           tag: "hotMovies",
-          res: response.body.subjects
+          res: response.data.subjects
         });
       })
       .catch(function(err) {
@@ -94,7 +94,7 @@ const actions = {
         commit({
           type: "getMovie",
           tag: "newMovies",
-          res: response.body.subjects
+          res: response.data.subjects
         });
       })
       .then(function(err) {
@@ -110,7 +110,7 @@ const actions = {
         commit({
           type: "getMovie",
           tag: "topMovies",
-          res: response.body.subjects
+          res: response.data.subjects
         });
       })
       .catch(function(err) {

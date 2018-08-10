@@ -6,6 +6,7 @@ import mine from "@/containers/Mine";
 import news from "@/containers/News";
 import about from "@/containers/About";
 import noFound from "@/containers/NoFound";
+import newsDetail from "@/containers/NewsDetail";
 
 Vue.use(Router);
 
@@ -43,88 +44,15 @@ export default new Router({
       component: about
     },
     {
+      path: "/main/news/newsDetail/:id",
+      name: "newsDetail",
+      component: newsDetail,
+      default: main
+    },
+    {
       path: "*",
       name: "*",
       component: noFound
     }
   ]
 });
-
-// export default new Router({
-//   routes: [
-//     {
-//       path: '/',
-//       redirect: '/pages/'
-//     },
-//     {
-//       path: '/pages',
-//       component: PagesView,
-//       children: [
-//         {
-//           path: '',
-//           redirect: '/pages/home'
-//         },
-//         {
-//           path: 'home',
-//           name: 'HomeView',
-//           component: HomeView
-//         },
-//         {
-//           path: 'movie',
-//           name: 'MovieView',
-//           component: MovieView
-//         },
-//         {
-//           path: 'book',
-//           name: 'BookView',
-//           component: BookView
-//         },
-//         {
-//           path: 'status',
-//           name: 'StatusView',
-//           component: StatusView
-//         },
-//         {
-//           path: 'group',
-//           name: 'GroupView',
-//           component: GroupView
-//         },
-//         {
-//           path: 'detail/:id',
-//           name: 'DetailView',
-//           component: DetailView
-//         }
-//       ]
-//     },
-//     {
-//       path: '/pages/:classify/subject/:id',
-//       name: 'SubjectView',
-//       components: {
-//         default: PagesView,
-//         subject: SubjectView
-//       }
-//     },
-//     {
-//       path: '/search',
-//       name: 'SearchView',
-//       components: {
-//         default: PagesView,
-//         search: SearchView
-//       }
-//     },
-//     {
-//       path: '/login',
-//       name: 'LoginView',
-//       component: LoginView
-//     },
-//     {
-//       path: '/register',
-//       name: 'RegisterView',
-//       component: RegisterView
-//     },
-//     {
-//       path: '*',
-//       redirect: '/pages/'
-//     }
-//   ]
-// })
