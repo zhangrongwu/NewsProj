@@ -31,7 +31,6 @@ export default {
     },
     methods: {
         onRefresh() {
-            debugger;
             console.log("下拉刷新");
             setTimeout(() => {
                 this.refreshing = false;
