@@ -67,6 +67,9 @@ const mutations = {
       case "topMovies":
         state.topMovies = payload.res;
     }
+  },
+  getMoreMovie(state, payload) {
+    state.moreMoviews = payload.res;
   }
 };
 // 外部直接调用的方法
@@ -121,15 +124,14 @@ const actions = {
       });
   },
   getMoreMovie({ commit, state }, { moviesType }) {
-    var moreUrl = "/movie/in_theaters?count=8";
-    debugger;
+    var moreUrl = "/movie/in_theaters?count=20";
     switch (moviesType) {
       case "1": {
-        moreUrl = "/movie/in_theaters?count=8";
+        moreUrl = "/movie/in_theaters?count=20";
         break;
       }
       case "2": {
-        moreUrl = "/movie/coming_soon?count=8";
+        moreUrl = "/movie/coming_soon?count=20";
         break;
       }
       case "3": {
@@ -144,12 +146,11 @@ const actions = {
       .then(function(response) {
         console.log(response);
         commit({
-          moreMoviews: response.data.subjects,
+          res: response.data.subjects,
           type: "getMoreMovie"
         });
       })
       .catch(function(err) {
-        debugger;
         console.log(err);
       });
   }

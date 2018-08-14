@@ -11,3 +11,5 @@ export default {
   mutations,
   actions
 };
+
+// actionsh和mutable中方法是成对存在的

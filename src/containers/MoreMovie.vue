@@ -1,6 +1,6 @@
 <template>
     <div>
-        <more-movie-list :items=movies></more-movie-list>
+        <more-movie-list :items="movies"></more-movie-list>
     </div>
 </template>
 
