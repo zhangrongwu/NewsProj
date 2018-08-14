@@ -89,9 +89,9 @@ export default {
 
 .average {
     padding-right: 0.8rem;
-    color: rgb(211, 22, 22);
+    color: rgb(22, 211, 22);
 }
 .average1 {
-    color: rgb(22, 211, 22);
+    color: rgb(211, 22, 22);
 }
 </style>

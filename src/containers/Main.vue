@@ -1,15 +1,16 @@
 <template>
-  <div class="middle">
-    <van-nav-bar class="van-nav-bar" title="首页" :fixed="navFixed" right-text="菜单" @click-left="onClickLeft" @click-right="onClickRight" :title="getTitle(active)"></van-nav-bar>
-    <!-- 中间路由 -->
-    <router-view/>
-    <van-tabbar v-model="active">
-      <van-tabbar-item v-for="item in tabBar" :key="item.id" info="">
-        <span>{{item.title}}</span>
-        <img slot="icon" slot-scope="props" dot=true info="item.badge" :src="props.active ? item.active : item.normal">
-      </van-tabbar-item>
-    </van-tabbar>
-  </div>
+
+    <div class="middle">
+        <van-nav-bar class="van-nav-bar" title="首页" :fixed="navFixed" right-text="菜单" @click-left="onClickLeft" @click-right="onClickRight" :title="getTitle(active)"></van-nav-bar>
+        <!-- 中间路由 -->
+        <router-view/>
+        <van-tabbar v-model="active">
+            <van-tabbar-item v-for="item in tabBar" :key="item.id" info="">
+                <span>{{item.title}}</span>
+                <img slot="icon" slot-scope="props" dot=true info="item.badge" :src="props.active ? item.active : item.normal">
+            </van-tabbar-item>
+        </van-tabbar>
+    </div>
 </template>
 
 <script>

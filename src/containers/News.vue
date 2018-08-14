@@ -1,9 +1,9 @@
 <template>
-  <div class="middle">
-    <news-list type='hasCover' :items="hotMovies" title='影院热映'></news-list>
-    <news-list type='hasCover' :items="topMovies" title='免费在线电影'></news-list>
-    <news-list type='hasCover' :items="newMovies" title='新片速递'></news-list>
-  </div>
+    <div class="middle">
+        <news-list type='hasCover' :items="hotMovies" title='影院热映' movieType='1'></news-list>
+        <news-list type='hasCover' :items="topMovies" title='免费在线电影' movieType='2'></news-list>
+        <news-list type='hasCover' :items="newMovies" title='新片速递' movieType='3'></news-list>
+    </div>
 </template>
 
 <script>

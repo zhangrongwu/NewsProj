@@ -2,7 +2,9 @@
     <div class="scroller">
         <div class="header">
             <h3>{{title}}</h3>
-            <button class="header-more">查看更多</button>
+            <router-link :to="'moreMovie/' + movieType" append>
+                <button class="header-more">查看更多</button>
+            </router-link>
         </div>
         <div class="content">
             <ul class="hasCover" v-if="type == 'hasCover'">
@@ -37,7 +39,7 @@ export default {
     components: {
         rating: rating
     },
-    props: ["title", "type", "items"],
+    props: ["title", "type", "items", "movieType"],
     methods: {
         pushNewsDetail(n) {
             this.$router.push({
@@ -47,6 +49,12 @@ export default {
         },
         openAutonrInfo(url) {
             window.location.href = url;
+        },
+        moreMovieAction() {
+            this.$router.push({
+                name: "moreMovie",
+                query: { id: this.movieType }
+            });
         }
     },
     filters: {

@@ -1,10 +1,13 @@
 import request from "../../services/network";
+import { Switch } from "vant";
+import { mapActions } from "vuex";
 
 // 数据
 const state = {
   hotMovies: [],
   newMovies: [],
   topMovies: [],
+  moreMoviews: [],
   movieTags: [
     {
       title: "同时入选IMDB250和豆瓣电影250的电影",
@@ -114,6 +117,39 @@ const actions = {
         });
       })
       .catch(function(err) {
+        console.log(err);
+      });
+  },
+  getMoreMovie({ commit, state }, { moviesType }) {
+    var moreUrl = "/movie/in_theaters?count=8";
+    debugger;
+    switch (moviesType) {
+      case "1": {
+        moreUrl = "/movie/in_theaters?count=8";
+        break;
+      }
+      case "2": {
+        moreUrl = "/movie/coming_soon?count=8";
+        break;
+      }
+      case "3": {
+        moreUrl = "/movie/top250?count=8";
+        break;
+      }
+    }
+    request({
+      url: moreUrl,
+      methods: "get"
+    })
+      .then(function(response) {
+        console.log(response);
+        commit({
+          moreMoviews: response.data.subjects,
+          type: "getMoreMovie"
+        });
+      })
+      .catch(function(err) {
+        debugger;
         console.log(err);
       });
   }

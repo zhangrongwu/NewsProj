@@ -11,9 +11,11 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "graceful-fs": "^4.1.11",
     "lib-flexible": "^0.3.2",
     "node-sass": "^4.9.2",
     "normalize.css": "^5.0.0",
+    "npm": "^6.3.0",
     "peer": "^0.2.8",
     "px2rem-loader": "^0.1.9",
     "sass-loader": "^7.1.0",
