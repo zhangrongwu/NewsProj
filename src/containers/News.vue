@@ -37,6 +37,7 @@ export default {
 
 <style scoped>
 .middle {
+    top: 120px;
     width: 100%;
     height: 100%;
     align-items: center;
