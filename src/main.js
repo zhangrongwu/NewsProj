@@ -6,7 +6,7 @@ import router from "./router";
 import store from "./store";
 import "normalize.css";
 import "scss";
-import "lib-flexible/flexible";
+import "lib-flexible/flexible.js";
 
 // 有赞UI组件库
 import "vant/lib/vant-css/index.css";
