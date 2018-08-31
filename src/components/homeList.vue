@@ -45,7 +45,7 @@ export default {
 
 <style lang='scss' scoped>
 .list {
-    margin: 0.1rem 0 56px 0;
+    margin: 40px 0 56px 0;
     .thumbnail {
         position: relative;
         display: block;
