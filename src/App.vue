@@ -15,7 +15,15 @@
 export default {
     name: "App",
     filters: {},
-    created() {},
+    created() {
+        if (active == 0) {
+            this.$router.push({ name: "home" });
+        } else if (active == 1) {
+            this.$router.push({ name: "news" });
+        } else if (active == 2) {
+            this.$router.push({ name: "mine" });
+        }
+    },
     methods: {
         onClickLeft() {},
         onClickRight() {},
@@ -26,7 +34,11 @@ export default {
     watch: {
         active: function(newValue, oldValue) {
             if (newValue == 0) {
-                this.$router.push((name: home));
+                this.$router.push({ name: "home" });
+            } else if (newValue == 1) {
+                this.$router.push({ name: "news" });
+            } else if (newValue == 2) {
+                this.$router.push({ name: "mine" });
             }
             this.defines.tabBarItemIndex = newValue;
         }

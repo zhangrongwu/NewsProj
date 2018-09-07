@@ -15,10 +15,6 @@ export default new Router({
   mode: "hash",
   routes: [
     {
-      path: "/",
-      redirect: "/main"
-    },
-    {
       path: "/home",
       name: "home",
       component: home
