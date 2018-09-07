@@ -76,14 +76,7 @@ export default {
 </script>
 
 <style>
-#app {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-}
-.van-nav-bar {
+/* .van-nav-bar {
     background-color: rgb(17, 139, 214);
     color: white;
     height: 44px;
@@ -95,5 +88,12 @@ export default {
 
 .van-nav-bar__title ~ .van-nav-bar__title::before {
     height: 44px;
+} */
+#app {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
 }
 </style>
