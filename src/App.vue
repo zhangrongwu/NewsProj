@@ -1,14 +1,14 @@
 <template>
-  <div id="app">
-    <van-nav-bar class="van-nav-bar" :fixed="navFixed" right-text="菜单" @click-left="onClickLeft" @click-right="onClickRight" :title="getTitle(active)"></van-nav-bar>
-    <router-view/>
-    <van-tabbar v-model="active">
-      <van-tabbar-item v-for="item in tabBar" :key="item.id" info="">
-        <span>{{item.title}}</span>
-        <img slot="icon" slot-scope="props" dot=true info="item.badge" :src="props.active ? item.active : item.normal">
-      </van-tabbar-item>
-    </van-tabbar>
-  </div>
+    <div id="app">
+        <van-nav-bar class="van-nav-bar" :fixed="navFixed" right-text="菜单" @click-left="onClickLeft" @click-right="onClickRight" :title="getTitle(active)"></van-nav-bar>
+        <router-view/>
+        <van-tabbar v-model="active">
+            <van-tabbar-item v-for="item in tabBar" :key="item.id" info="">
+                <span>{{item.title}}</span>
+                <img slot="icon" slot-scope="props" dot=true info="item.badge" :src="props.active ? item.active : item.normal">
+            </van-tabbar-item>
+        </van-tabbar>
+    </div>
 </template>
 
 <script>
@@ -16,13 +16,13 @@ export default {
     name: "App",
     filters: {},
     created() {
-        if (active == 0) {
-            this.$router.push({ name: "home" });
-        } else if (active == 1) {
-            this.$router.push({ name: "news" });
-        } else if (active == 2) {
-            this.$router.push({ name: "mine" });
-        }
+        // if (active == 0) {
+        //     this.$router.push({ name: "home" });
+        // } else if (active == 1) {
+        //     this.$router.push({ name: "news" });
+        // } else if (active == 2) {
+        //     this.$router.push({ name: "mine" });
+        // }
     },
     methods: {
         onClickLeft() {},
@@ -83,9 +83,8 @@ export default {
     text-align: center;
     color: #2c3e50;
 }
-
 .van-nav-bar {
-    background-color: rgb(84, 170, 91);
+    background-color: rgb(17, 139, 214);
     color: white;
     height: 44px;
     line-height: 44px;
