@@ -1,9 +1,10 @@
 <template>
-
     <div class="middle">
-        <van-nav-bar class="van-nav-bar" title="首页" :fixed="navFixed" right-text="菜单" @click-left="onClickLeft" @click-right="onClickRight" :title="getTitle(active)"></van-nav-bar>
-        <!-- 中间路由 -->
-        <router-view/>
+        <van-nav-bar class="van-nav-bar" :fixed="navFixed" right-text="菜单" @click-left="onClickLeft" @click-right="onClickRight" :title="getTitle(active)"></van-nav-bar>
+        <!-- <div>main</div> -->
+        <Home v-if="selected === 0"></Home>
+        <News v-else-if="selected === 1"></News>
+        <Mine v-else-if="selected === 2"></Mine>
         <van-tabbar v-model="active">
             <van-tabbar-item v-for="item in tabBar" :key="item.id" info="">
                 <span>{{item.title}}</span>
@@ -15,28 +16,25 @@
 
 <script>
 import Home from "./Home.vue";
-
+import News from "./News.vue";
+import Mine from "./Mine.vue";
 export default {
     name: "Main",
     components: {
-        Home: Home
+        Home: Home,
+        Mine: Mine,
+        News: News
     },
     filters: {},
     created() {
         var index = this.defines.tabBarItemIndex;
-        if (index == 0) {
-            this.$router.push({ name: "home" });
-        } else if (index == 1) {
-            this.$router.push({ name: "news" });
-        } else if (index == 2) {
-            this.$router.push({ name: "mine" });
-        }
+        this.selected = index;
     },
     data() {
         return {
             navFixed: true,
             active: this.defines.tabBarItemIndex,
-            selectTitle: "首页",
+            selected: "0",
             tabBar: [
                 {
                     normal: require("../assets/icon-home-normal.png"),
@@ -71,13 +69,7 @@ export default {
     },
     watch: {
         active: function(newValue, oldValue) {
-            if (newValue == 0) {
-                this.$router.push({ name: "home" });
-            } else if (newValue == 1) {
-                this.$router.push({ name: "news" });
-            } else if (newValue == 2) {
-                this.$router.push({ name: "mine" });
-            }
+            this.selected = newValue;
             this.defines.tabBarItemIndex = newValue;
         }
     }
