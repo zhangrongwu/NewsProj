@@ -43,7 +43,8 @@ export default {
     justify-content: center;
     position: absolute;
     background-color: aliceblue;
-    margin: 45px 0px 50px 0px;
+    margin-top: 45px;
+    margin-bottom: 50px;
 }
 </style>
 
