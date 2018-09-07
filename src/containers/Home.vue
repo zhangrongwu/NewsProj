@@ -56,12 +56,12 @@ export default {
 <style scoped>
 .middle {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
+    margin: 45px 0px 0px 0px;
     align-items: center;
     justify-content: center;
     position: absolute;
     background-color: white;
-    margin-top: 45px;
 }
 </style>
 
