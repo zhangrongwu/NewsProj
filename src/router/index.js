@@ -19,28 +19,22 @@ export default new Router({
       redirect: "/main"
     },
     {
-      path: "/main",
-      component: main,
-      children: [
-        {
-          path: "home",
-          name: "home",
-          component: home
-        },
-        {
-          path: "news",
-          name: "news",
-          component: news
-        },
-        {
-          path: "mine",
-          name: "mine",
-          component: mine
-        }
-      ]
+      path: "/home",
+      name: "home",
+      component: home
     },
     {
-      path: "about",
+      path: "/news",
+      name: "news",
+      component: news
+    },
+    {
+      path: "/mine",
+      name: "mine",
+      component: mine
+    },
+    {
+      path: "/about",
       name: "about",
       component: about
     },
