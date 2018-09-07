@@ -79,7 +79,7 @@ export default {
 </script>
 
 <style scoped>
-.van-nav-bar {
+/* .van-nav-bar {
     background-color: rgb(84, 170, 91);
     color: white;
     height: 44px;
@@ -91,7 +91,7 @@ export default {
 
 .van-nav-bar__title ~ .van-nav-bar__title::before {
     height: 44px;
-}
+} */
 
 .middle {
     /* width: 100%;
