@@ -1,6 +1,5 @@
 import Vue from "vue";
 import Router from "vue-router";
-import main from "@/containers/Main";
 import home from "@/containers/Home";
 import mine from "@/containers/Mine";
 import news from "@/containers/News";
@@ -39,16 +38,14 @@ export default new Router({
       component: about
     },
     {
-      path: "/main/news/newsDetail/:id",
+      path: "/news/newsDetail/:id",
       name: "newsDetail",
-      component: newsDetail,
-      default: main
+      component: newsDetail
     },
     {
-      path: "/main/news/moreMovie/:id",
+      path: "/news/moreMovie/:id",
       name: "moreMovie",
-      component: moreMovie,
-      default: main
+      component: moreMovie
     },
     {
       path: "*",

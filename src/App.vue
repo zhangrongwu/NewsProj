@@ -2,11 +2,6 @@
     <div id="app">
         <van-nav-bar class="van-nav-bar" :fixed="navFixed" right-text="菜单" @click-left="onClickLeft" @click-right="onClickRight" :title="getTitle(active)"></van-nav-bar>
         <router-view/>
-        <div class="middle-content">
-            <Home v-if="active === 0"></Home>
-            <News v-else-if="active === 1"></News>
-            <Mine v-else-if="active === 2"></Mine>
-        </div>
         <van-tabbar v-model="active">
             <van-tabbar-item v-for="item in tabBar" :key="item.id" info="">
                 <span>{{item.title}}</span>
@@ -17,25 +12,17 @@
 </template>
 
 <script>
-import Home from "./containers/Home.vue";
-import News from "./containers/News.vue";
-import Mine from "./containers/Mine.vue";
 export default {
     name: "App",
     filters: {},
-    components: {
-        Home: Home,
-        Mine: Mine,
-        News: News
-    },
     created() {
-        // if (active == 0) {
-        //     this.$router.push({ name: "home" });
-        // } else if (active == 1) {
-        //     this.$router.push({ name: "news" });
-        // } else if (active == 2) {
-        //     this.$router.push({ name: "mine" });
-        // }
+        if (active == 0) {
+            this.$router.push({ name: "home" });
+        } else if (active == 1) {
+            this.$router.push({ name: "news" });
+        } else if (active == 2) {
+            this.$router.push({ name: "mine" });
+        }
     },
     methods: {
         onClickLeft() {},
@@ -46,13 +33,13 @@ export default {
     },
     watch: {
         active: function(newValue, oldValue) {
-            // if (newValue == 0) {
-            //     this.$router.push({ name: "home" });
-            // } else if (newValue == 1) {
-            //     this.$router.push({ name: "news" });
-            // } else if (newValue == 2) {
-            //     this.$router.push({ name: "mine" });
-            // }
+            if (newValue == 0) {
+                this.$router.push({ name: "home" });
+            } else if (newValue == 1) {
+                this.$router.push({ name: "news" });
+            } else if (newValue == 2) {
+                this.$router.push({ name: "mine" });
+            }
             this.defines.tabBarItemIndex = newValue;
         }
     },
@@ -97,7 +84,7 @@ export default {
     color: #2c3e50;
 }
 .van-nav-bar {
-    background-color: rgb(17, 139, 214);
+    background-color: rgb(17, 139, 214) !important;
     color: white;
     height: 44px;
     line-height: 44px;
