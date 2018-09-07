@@ -1,10 +1,12 @@
 <template>
     <div class="middle">
         <van-nav-bar class="van-nav-bar" :fixed="navFixed" right-text="菜单" @click-left="onClickLeft" @click-right="onClickRight" :title="getTitle(active)"></van-nav-bar>
-        <!-- <div>main</div> -->
-        <Home v-if="selected === 0"></Home>
-        <News v-else-if="selected === 1"></News>
-        <Mine v-else-if="selected === 2"></Mine>
+        <div class="middle-content">
+            <Home v-if="selected === 0"></Home>
+            <News v-else-if="selected === 1"></News>
+            <Mine v-else-if="selected === 2"></Mine>
+        </div>
+
         <van-tabbar v-model="active">
             <van-tabbar-item v-for="item in tabBar" :key="item.id" info="">
                 <span>{{item.title}}</span>
@@ -93,11 +95,14 @@ export default {
 
 .middle {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     align-items: center;
     justify-content: center;
     position: absolute;
     background-color: aliceblue;
+}
+.middle-content {
+    margin: 0px 0px 0px 0px;
 }
 </style>
 
