@@ -1,24 +1,21 @@
 <template>
-  <div class="middle">
-    <home-header-view></home-header-view>
-    <home-list :items="events"></home-list>
-    <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading">
-      <loading slot="spinner"></loading>
-    </infinite-loading>
-  </div>
+    <div class="middle">
+        <home-list :items="events"></home-list>
+        <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading">
+            <loading slot="spinner"></loading>
+        </infinite-loading>
+    </div>
 </template>
 
 <script>
 // 导入状态数据管理
 import { mapState, mapActions } from "vuex";
-import homeHeaderView from "../components/homeHeaderView";
 import homeList from "../components/homeList";
 import InfiniteLoading from "vue-infinite-loading";
 import loading from "../components/Loading";
 
 export default {
     components: {
-        homeHeaderView,
         homeList,
         InfiniteLoading,
         loading
@@ -61,7 +58,6 @@ export default {
     justify-content: center;
     position: absolute;
     background-color: white;
-    margin-top: 45px;
 }
 </style>
 

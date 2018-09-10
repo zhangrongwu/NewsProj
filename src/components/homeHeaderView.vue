@@ -1,10 +1,10 @@
 <template>
-  <div class="home-header" fixed=true>
-    <van-tabs sticky=t rue @click="onClick" offset-top=44px>
-      <van-tab v-for="item in titles" :title=item.title :key="item.id">
-      </van-tab>
-    </van-tabs>
-  </div>
+    <div class="home-header" fixed=true>
+        <van-tabs sticky=true @click="tabOnClick" offset-top=44px>
+            <van-tab v-for="item in titles" :title=item.title :key="item.id">
+            </van-tab>
+        </van-tabs>
+    </div>
 </template>
 
 <script>
@@ -15,30 +15,30 @@ export default {
             titles: [
                 {
                     id: "1",
-                    title: "豆瓣时间",
-                    url: ""
+                    title: "推荐",
+                    name: "home"
                 },
                 {
                     id: "2",
-                    title: "豆瓣豆品",
-                    url: ""
+                    title: "头条",
+                    name: "doupin"
                 },
                 {
                     id: "3",
-                    title: "书店",
-                    url: ""
+                    title: "政策",
+                    name: "bookstore"
                 },
                 {
                     id: "4",
-                    title: "豆瓣视频",
-                    url: ""
+                    title: "行情",
+                    name: "movie"
                 }
             ]
         };
     },
     methods: {
-        onClick(index, title) {
-            this.$toast(title);
+        tabOnClick(index, title) {
+            this.$router.push({ name: this.titles[index].name });
         }
     }
 };

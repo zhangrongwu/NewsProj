@@ -1,7 +1,7 @@
 <template>
     <div class="list">
         <template v-for="item in items">
-            <router-link class="thumbnail" :to="{name: 'DetailView', params: { id: item.id }}" :key="item.id">
+            <router-link class="thumbnail" :to="{name: 'mine', params: { id: item.id }}" :key="item.id">
                 <div class="content">
                     <img :src="item.image_hlarge" alt="cover">
                     <h3>{{item.title}}</h3>
@@ -45,7 +45,7 @@ export default {
 
 <style lang='scss' scoped>
 .list {
-    margin: 40px 0 56px 0;
+    margin: 0px 0 56px 0;
     .thumbnail {
         position: relative;
         display: block;

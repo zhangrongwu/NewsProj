@@ -1,12 +1,18 @@
 import Vue from "vue";
 import Router from "vue-router";
 import home from "@/containers/Home";
+import main from "@/containers/Main";
 import mine from "@/containers/Mine";
 import news from "@/containers/News";
 import about from "@/containers/About";
 import noFound from "@/containers/NoFound";
 import newsDetail from "@/containers/NewsDetail";
 import moreMovie from "@/containers/MoreMovie";
+
+import time from "@/containers/Time";
+import bookstore from "@/containers/BookStore";
+import doupin from "@/containers/DouPin";
+import movie from "@/containers/Movie";
 
 Vue.use(Router);
 
@@ -15,12 +21,34 @@ export default new Router({
   routes: [
     {
       path: "/",
-      redirect: "/home"
+      redirect: "/main"
     },
     {
-      path: "/home",
-      name: "home",
-      component: home
+      path: "/main",
+      name: "main",
+      component: main,
+      children: [
+        {
+          path: "/home",
+          name: "home",
+          component: home
+        },
+        {
+          path: "/bookstore",
+          name: "bookstore",
+          component: bookstore
+        },
+        {
+          path: "/doupin",
+          name: "doupin",
+          component: doupin
+        },
+        {
+          path: "/movie",
+          name: "movie",
+          component: movie
+        }
+      ]
     },
     {
       path: "/news",
